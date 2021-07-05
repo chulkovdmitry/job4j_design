@@ -12,23 +12,23 @@ public class SimpleArray<T> implements Iterable<T> {
         this.objectsTypeT = new Object[size];
     }
 
-    public void add(T model) throws IndexOutOfBoundsException {
+    public void add(T model) {
         objectsTypeT[index++] = model;
     }
 
-    public void set(int index, T model) throws IndexOutOfBoundsException {
+    public void set(int index, T model) {
         Objects.checkIndex(index, this.index);
         objectsTypeT[index] = model;
     }
 
-    public void remove(int index) throws IndexOutOfBoundsException {
+    public void remove(int index) {
         Objects.checkIndex(index, this.index);
         objectsTypeT[index] = null;
         this.index--;
         System.arraycopy(objectsTypeT, index + 1, objectsTypeT, index, this.index - index);
     }
 
-    public T get(int index) throws IndexOutOfBoundsException {
+    public T get(int index) {
         Objects.checkIndex(index, this.index);
         return (T) objectsTypeT[index];
     }
