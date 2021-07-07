@@ -20,7 +20,7 @@ public class SimpleArray<T> implements Iterable<T> {
     public void add(T model) {
         modCount++;
         if (index >= size) {
-            size++;
+            size *= 2;
             container = Arrays.copyOf(container, size);
         }
         container[index++] = model;
