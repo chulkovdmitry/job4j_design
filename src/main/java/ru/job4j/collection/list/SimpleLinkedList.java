@@ -13,7 +13,6 @@ public class SimpleLinkedList<E> implements Iterable<E> {
     private Node<E> after;
 
     public void add(E value) {
-        if (value != null) {
             Node<E> last = after;
             Node<E> newNode = new Node<>(last, value, null);
             after = newNode;
@@ -24,7 +23,6 @@ public class SimpleLinkedList<E> implements Iterable<E> {
             }
             index++;
             modCount++;
-        }
     }
 
     public E get(int index) {
