@@ -10,13 +10,13 @@ import static org.junit.Assert.assertThat;
 
 public class DeleteFirstLinkedTest {
 
-    @Test(expected = NoSuchElementException.class)
+/*    @Test(expected = NoSuchElementException.class)
     public void whenDeleteFirst() {
         ForwardLinked<Integer> linked = new ForwardLinked<>();
         linked.add(1);
         linked.deleteFirst();
         linked.iterator().next();
-    }
+    }*/
 
     @Test(expected = NoSuchElementException.class)
     public void whenDeleteEmptyLinked() {
