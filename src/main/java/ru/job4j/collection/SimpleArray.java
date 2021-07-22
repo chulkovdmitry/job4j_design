@@ -3,18 +3,27 @@ package ru.job4j.collection;
 import java.util.*;
 
 public class SimpleArray<T> implements Iterable<T> {
-    private Object[] container;
+    private T[] container;
     private int size = 1;
     private int modCount = 0;
     private int index = 0;
 
-    public SimpleArray() {
+ /*   public SimpleArray() {
         container = new Object[size];
+    }*/
+
+    public SimpleArray(int size) {
+        this.size = size;
+        container = (T[]) new Object[size];
     }
 
     public T get(int index) {
         Objects.checkIndex(index, this.index);
         return (T) container[index];
+    }
+
+    public int size() {
+        return index;
     }
 
     public void add(T model) {
