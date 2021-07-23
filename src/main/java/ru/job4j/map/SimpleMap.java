@@ -38,7 +38,6 @@ public class SimpleMap<K, V> implements Map<K, V> {
             return false;
         }
         elem.setValue(value);
-        modCount++;
         return true;
     }
 
@@ -59,6 +58,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
         length = (length * 3) / 2;
         capacity = (int) (length * LOAD_FACTOR);
         table = new MapEntry[length];
+        count = 0;
         for (var el : newTable) {
             if (el != null) {
                 element = el;
