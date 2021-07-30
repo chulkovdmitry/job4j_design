@@ -31,4 +31,11 @@ public class ConfigTest {
         config.load();
         assertNull(config.value("name"));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void excIllegalArgumentExceptionTest() {
+        String path = "./data/error.properties";
+        Config config = new Config(path);
+        config.load();
+    }
 }

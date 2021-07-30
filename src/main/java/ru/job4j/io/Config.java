@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
+import java.io.IOException;
 
 public class Config {
     private final String path;
@@ -18,9 +19,14 @@ public class Config {
         try (BufferedReader read = new BufferedReader(new FileReader(path))) {
             read.lines()
                     .filter(r -> !r.startsWith("#") && r.contains("="))
-                    .map(r -> r.split("="))
-                    .forEach(r -> values.put(r[0], r.length < 2 ? null : r[1]));
-        } catch (Exception e) {
+                    .forEach(r -> {
+                        String[] line = r.split("=");
+                        if (line.length < 2) {
+                            throw new IllegalArgumentException();
+                        }
+                        values.put(line[0], line[1]);
+                    });
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
