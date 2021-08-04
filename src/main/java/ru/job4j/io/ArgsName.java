@@ -18,8 +18,8 @@ public class ArgsName {
     }
 
     private void parse(String[] args) {
-        if (args.length == 0) {
-            throw new IllegalArgumentException("Parameters is null!");
+        if (args.length < 3) {
+            throw new IllegalArgumentException("Not enough arguments");
         }
         Arrays.stream(args).filter(e -> e.contains("="))
                 .forEach(e -> {
