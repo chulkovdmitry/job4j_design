@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class FlatMapTest {
-    @Test
+/*    @Test
     public void whenDiffNext() {
         Iterator<Iterator<Integer>> data = List.of(
                 List.of(1).iterator(),
@@ -84,5 +84,5 @@ public class FlatMapTest {
         ).iterator();
         FlatMap flat = new FlatMap(it);
         assertFalse(flat.hasNext());
-    }
+    }*/
 }

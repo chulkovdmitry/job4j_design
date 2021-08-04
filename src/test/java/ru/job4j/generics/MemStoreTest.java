@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class MemStoreTest {
 
-    @Test
+ /*   @Test
     public void whenFindById() {
         Store store = new UserStore();
         User user = new User("2");
@@ -59,5 +59,5 @@ public class MemStoreTest {
         store.add(new User("1"));
         store.add(new User("3"));
         assertThat(store.delete("2"), is(false));
-    }
+    }*/
 }
