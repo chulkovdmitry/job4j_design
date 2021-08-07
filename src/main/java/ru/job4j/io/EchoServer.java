@@ -12,11 +12,11 @@ public class EchoServer {
                 try (OutputStream out = socket.getOutputStream();
                      BufferedReader in = new BufferedReader(
                              new InputStreamReader(socket.getInputStream()))) {
+                    out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
                     if (in.readLine().contains("Bye")) {
                         System.out.println("Closing the server...");
                         server.close();
                     }
-                    out.write("HTTP/1.1 200 OK\r\n".getBytes());
                 }
             }
         }
