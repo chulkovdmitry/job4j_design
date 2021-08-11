@@ -29,11 +29,11 @@ public class CSVReaderTest {
                 "-out=" + result.toAbsolutePath(),
                 "-filter=name,age"};
         csv.init(args);
-        String expected = "name; age;"
+        String expected = "name age"
                 + System.lineSeparator()
-                + "Ivan; 33;"
+                + "Ivan 33"
                 + System.lineSeparator()
-                + "Mary; 28;";
+                + "Mary 28";
         String resultFileContent = Files
                 .lines(result, StandardCharsets.UTF_8)
                 .collect(Collectors.joining(System.lineSeparator()));
