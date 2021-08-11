@@ -17,23 +17,23 @@ public class CSVReaderTest {
     public void whenNameAndAgeOnFilter() throws IOException {
         Path tempFile = Files.createTempFile("test", ".txt");
         Path result = Files.createTempFile("result", ".txt");
-        Files.writeString(tempFile, "name, age, birthDate, education, children"
+        Files.writeString(tempFile, "name; age; birthDate; education; children"
                 + System.lineSeparator()
-                + "Ivan, 33, 02.02.1988, Yes, 3"
+                + "Ivan; 33; 02.02.1988; Yes; 3"
                 + System.lineSeparator()
-                + "Mary, 28, 01.10.1993, No, 2");
+                + "Mary; 28; 01.10.1993; No; 2");
         CSVReader csv = new CSVReader();
         String path = tempFile.toAbsolutePath().toString();
         String[] args = {"-path=" + path,
-                "-delimiter=,",
+                "-delimiter=;",
                 "-out=" + result.toAbsolutePath(),
                 "-filter=name,age"};
         csv.init(args);
-        String expected = "name, age,"
+        String expected = "name; age;"
                 + System.lineSeparator()
-                + "Ivan, 33,"
+                + "Ivan; 33;"
                 + System.lineSeparator()
-                + "Mary, 28,";
+                + "Mary; 28;";
         String resultFileContent = Files
                 .lines(result, StandardCharsets.UTF_8)
                 .collect(Collectors.joining(System.lineSeparator()));

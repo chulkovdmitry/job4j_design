@@ -17,7 +17,8 @@ public class CSVReader {
         if (out.equals("stdout")) {
             stdout(doOut(pathCSV, li, delimiter));
         } else {
-            fileOut(out, doOut(pathCSV, li, delimiter));
+            //fileOut(out, doOut(pathCSV, li, delimiter));
+            fileOutStr(pathCSV, li, delimiter, out);
         }
     }
 
@@ -53,7 +54,7 @@ public class CSVReader {
             while (scanner.hasNextLine()) {
                 List<String> lss = Arrays.asList(scanner.nextLine().split(delimiter));
                 for (Integer index : getIndexes) {
-                    sb.append(lss.get(index)).append(delimiter);
+                    sb.append(lss.get(index)).append(" ");
                 }
                 sb.append(System.lineSeparator());
             }
@@ -67,13 +68,28 @@ public class CSVReader {
         System.out.println(sb);
     }
 
-    private void fileOut(String out, StringBuilder sb) throws IOException {
+    private void fileOutStr(Path path, List<Integer> getIndexes, String delimiter, String out) throws IOException {
+        try (FileWriter writer = new FileWriter(out)) {
+            Scanner scanner = new Scanner(path);
+            while (scanner.hasNextLine()) {
+                List<String> lss = Arrays.asList(scanner.nextLine().split(delimiter));
+                for (Integer index : getIndexes) {
+                    writer.write(lss.get(index));
+                }
+                writer.write(System.lineSeparator());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+/*    private void fileOut(String out, StringBuilder sb) throws IOException {
         try (FileWriter writer = new FileWriter(out)) {
             writer.write(String.valueOf(sb));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     private void check(String[] args) {
         if (args.length != 4) {
