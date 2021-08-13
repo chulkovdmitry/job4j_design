@@ -17,8 +17,8 @@ public class UsageLog4j {
         double experience = 355.55;
         long height = 185;
         short round = 12;
-        LOG.debug("User info name : {}, age : {}, validate : {}, male : {}, round : {}"
-                        + " weight : {}, iq : {}, experience : {}, height : {}", name, age, validate,
+        LOG.debug("User info name : {}, age : {}, validate : {}, male : {},"
+                        + " weight : {}, iq : {}, experience : {}, height : {}, round : {}", name, age, validate,
                 sex, weight, iq, experience, height, round);
     }
 }
