@@ -1,0 +1,1 @@
+insert into grup(name,track,year,style,active) values('Pelmeni', '3.62', '1991', 'trash', 'true');
