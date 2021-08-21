@@ -4,5 +4,5 @@ create table grup(
 	track float8,
 	year int,
 	style text,
-	active bool
+	active boolean
 );
