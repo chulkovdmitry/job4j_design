@@ -21,8 +21,6 @@ public class TableEditor implements AutoCloseable {
         String url = config.value("url");
         String login = config.value("login");
         String password = config.value("password");
-        //String login = "postgres";
-        //String password = "password";
         connection =  DriverManager.getConnection(url, login, password);
     }
 
