@@ -1,0 +1,5 @@
+Petr Arsentev;parsentev@yandex.ru;
+Ivan Ivanov;iivanov@gmail.com;
+Mark Twain;mark.twain@gmail.com
+Diego Maradona;maradona@gmail.com
+Pele;pele@gmail.com
